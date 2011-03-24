@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Forms</title>
+	<link rel="stylesheet" type="text/css" href="s.css" media="screen">
+	<style>
+	/* Opera red #B20000 */
+
+body{
+	font: 22pt / 1.5 helvetica,arial,sans-serif; 
+	margin:0; 
+	padding:0; 
+	background:#fff;
+	overflow:hidden;
+}
+img{box-shadow: 0px 0px 20px #ccc; display:block; margin: 30px 0;}
+a{ color: #006;}
+a:visited{color: #E68099}
+a:hover, a:active{color: #900; text-decoration:underline}
+
+section{
+	display:block;
+	padding:20px;
+	position:relative;
+	color:#000;
+	background:#fff;
+	clear:both;
+}
+
+section:first-child{
+	 background-color:#b20000; 
+	 color:#fff;
+}
+
+section:first-child hgroup{
+	position:absolute;
+	bottom:50px;
+}
+
+h1{white-space:nowrap}
+h1, h2, h3, h4, h5, h6, a:link{color:#b20000}
+h1, h2, h3, h4, h5, h6, ul, p, form{margin: 0; clear: both}
+
+h1{font-size:1.8em}
+
+section:first-child h1,
+section:first-child h2,
+section:first-child h3{margin: 0 auto; color:inherit}
+
+.note, .footnote, .endnote{font-size: .6em;}	
+.footnote{position: absolute;  bottom: 20px;}
+
+ul{list-style-type:square;}
+ul.nobullets{list-style-type:none;}
+li{line-height: 1em; margin-bottom: .8em }
+
+.smaller{font-size: 90%;}
+.smallest{font-size:80%}
+
+.smaller li{ margin-bottom: .5em }
+
+.col{clear: none; float:left; width:44%}
+.col:nth-child(even){margin-left: 4%}
+.col:nth-child(odd){margin-left: 0%}
+
+.txtright{text-align:right;}
+.txtleft{text-align:left;}
+
+b{ color: #b20000 }
+
+div{margin: 1em auto 2em auto;}
+
+label{font-size: 24pt}
+
+pre{overflow:auto}
+</style>
+</head>
+<body>
+
+<section class="slide"> 
+	<hgroup>
+		<h1>HTML5 Forms</h1> 
+		<h2>Tiffany B. Brown, Opera Software</h2>
+		<h3>HTML5/CSS3 LA User Group Meetup</h3>
+		<p>February 23, 2011 (use the space bar)</p>
+	</hgroup>
+	
+</section>
+
+
+<section class="slide" id="caveats">
+	<h1>Caveats</h1>
+	<ul>
+		<li>This is an overview.</li>
+		<li>(Mostly) Tested in Opera 11.01, Firefox 4 beta, Safari 5 and Chrome 10.0.648.82 beta<br>
+		<span class="note">(Yes, I am collecting $$ for my Windows 7 license.<sup>[<a href="#l2">2</a>]</sup>)</span></li>
+	</ul>
+</section>
+
+<section class="slide" id="advantages"> 
+	<h1>Advantages</h1>
+	<ul>
+		<li>Makes form validation native to the browser.*</li>
+		<li>User Interface enhancements</li>
+		<li>Less JavaScript! More speedy pages!</li>
+	</ul>
+	<p class="footnote">(*Still need to validate on the server.)</p>
+</section>
+
+
+
+<section class="slide" id="disadvantagesfornow"> 
+	<h1>Disadvantages (for now)</h1>
+	<ul>
+		<li>Not well-supported by currently-used browsers<br>
+		<i class="note">(Opera leads the pack!* Still need JavaScript.)</i></li>
+		<li>Little to no control over native UI in most browsers.</li>
+		<li>Pattern validation is not consistent across browsers.</li>
+	</ul>
+	
+	<p class="footnote">*In truth, Chrome 10 does for now.</p>
+</section>
+
+<section class="slide" id="html4inputtypes">
+	<h1>HTML 4 input types</h1>
+	<ul class="col smaller">
+		<li><code>text</code></li>
+		<li><code>password</code></li>
+		<li><code>checkbox</code></li>
+		<li><code>radio</code></li>
+		<li><code>submit</code></li>
+	</ul>
+	
+	<ul class="col smaller">
+		<li><code>reset</code></li>
+		<li><code>file</code></li>
+		<li><code>hidden</code></li>
+		<li><code>image</code></li>
+		<li><code>button</code></li>
+	</ul>
+	<p>Still okay in HTML5.</p>
+</section>
+
+
+<section class="slide" id="newhtml5inputtypes">
+	<h1>New HTML 5 input types!</h1>
+	<ul class="col smallest">
+		<li><code>search</li></code>
+		<li><code>tel </li></code>
+		<li><code>url </li></code>
+		<li><code>email </li></code>
+		<li><code>datetime </li></code>
+		<li><code>date </li></code>
+		<li><code>color</li></code>
+	</ul>
+	<ul class="col smallest">	
+		<li><code>month </li></code>
+		<li><code>week</li></code>
+		<li><code>time</li></code>
+		<li><code>datetime-local </li></code>
+		<li><code>number </li></code>
+		<li><code>range</li></code>
+	</ul>
+</section>
+
+
+
+<section class="slide" id="newattributes">
+	<h1>New attributes!</h1>
+	
+	<div>
+	<code>accept, autocomplete, dirname, list, max, min, <b>multiple</b>, <b>pattern</b>, <b>placeholder</b>, <b>required</b>, step</code> and more!
+	</div>
+	
+	<p class="endnote">The stuff in <b>bolded red</b> is what we'll cover. Not all attributes apply to all input types.<sup>[<a href="#l1">1</a>]</sup></p>
+</section>
+
+<section class="slide" id="newformelements"> 
+	<h1>New form elements!</h1>
+	<ul>
+		<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-datalist-element"><code>datalist</code></a></li>
+		<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-keygen-element"><code>keygen</code></a></li>
+		<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-output-element"><code>output</code></a></li>
+		<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-progress-element"><code>progress</code></a></li>
+		<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-meter-element"><code>meter</code></a></li>
+	</ul>
+	<p class="footnote">(Not going to cover these.)</p>
+</section>
+
+<section class="slide" id="css3pseudoclassessupstylefontsize14ptahrefl33asup">
+	<h1>+ CSS3 pseudo-classes <sup style="font-size:14pt">[<a href="#l3">3</a>]</sup></h1>
+	<ul class="col">
+		<li><code>:checked</code></li>
+		<li><code>:enabled</code></li>
+		<li><code>:disabled</code></li>
+		<li><code>:default</code></li>
+		<li><code>:valid</code></li>
+	</ul>
+	
+	<ul class="col">
+		<li><code>:invalid</code></li>
+		<li><code>:in-range</code></li>
+		<li><code>:out-of-range</code></li>
+		<li><code>:required</code></li>
+		<li><code>:optional</code></li>	
+	</ul>
+</section>
+
+<section class="slide" id="awesomeis">
+	<h1>Awesome is &#8230;</h1>
+	
+	<div>HTML5 Forms + CSS3 pseudo-classes = <b>Kick. a**. forms</b>.<sup> 	&#8224;<sup></div>
+	
+	<p class="footnote">&#8224;Sort of.</p>
+</section>
+
+
+<section class="slide" id="userinterfaceenhancements">
+	<h1>User Interface Enhancements</h1>
+	<p><a href="demoui/index.html" target="_blank">See a demo</a></p>
+	<form id="formy" method="post">
+		<div class="col">
+			<p><label for="field0">Search example: <input type="search" name="field0" value="" placeholder="" required></p>
+			<p><label for="field1">Tel example: <input type="tel" name="field1" value="" placeholder="818-555-1212" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" required></p>
+			<p><label for="field2">Url example: <input type="url" name="field2" value="" placeholder="" required></p>
+			<p><label for="field3">Email example: <input type="email" name="field3" value="" placeholder="" required></p>
+			<p><label for="field4">Datetime example: <input type="datetime" name="field4" value="" placeholder="" required></p>
+			<p><label for="field5">Date example: <input type="date" name="field5" value="" placeholder="" required></p>
+			
+		</div>
+		
+		<div class="col">
+		<p><label for="field5">Color example: <input type="color" name="fieldC" value=""> (Opera only)</p>
+			<p><label for="field6">Month example: <input type="month" name="field6" value="" placeholder="" required></p>
+			<p><label for="field7">Week example: <input type="week" name="field7" value="" placeholder="" required></p>
+			<p><label for="field8">Time example: <input type="time" name="field8" value="" placeholder="" required></p>
+			<p><label for="field9">Datetime-local example: <input type="datetime-local" name="field9" value="" placeholder="" required></p>
+			<p><label for="field10">Number example: <input type="number" name="field10" value="" placeholder="" required></p>
+			<p><label for="field11">Range example: <input type="range" name="field11" value="" placeholder="" required></p>
+		
+		</div>
+	</form>
+
+</section>
+
+<section class="slide" id="userinterfaceenhancementspart2">
+	<h1>User Interface Enhancements, part 2</h1>
+	<p>Browser and platform dependent.</p>
+	<div class="col">
+	<p>WebKit browsers / Mac</p>
+	<img src="images/searchfieldinwebkit.png" alt="What the search field looks 
+	like in WebKit browsers">
+	
+	<img src="images/datesinwebkit.png" alt="What the date field looks 
+	like in WebKit browsers">
+	</div>
+	
+	<div class="col">
+		<p>Opera 11 / Ubuntu 10</p>
+		<img src="images/html5formsinoperaubuntu.png" alt="What these fields look like in Opera 11 on Ubuntu">
+	</div>
+</section>
+
+<section class="slide" id="userinterfaceenhancementspart3">
+	<h1>User Interface Enhancements, part 3</h1>
+	
+	<div>Localized errors in Opera<br>
+	<img src="images/injapanese.png" alt="Opera in Japanese">
+	</div>
+	
+	
+</section>
+
+
+<section class="slide" id="demo1emailaddresses">
+	<h1>Demo 1: E-mail addresses</h1>
+	<pre>
+	&lt;input type=&quot;email&quot; name=&quot;emailaddy&quot; value=&quot;&quot; 
+	placeholder=&quot;placeholder@example.com&quot; required&gt;
+	</pre>
+	<p><a href="demoemail/index.html" target="_blank">See it in action</a></p>
+
+</section>
+
+<section class="slide" id="demo2multipleemailaddresses">
+	<h1>Demo 2: Multiple E-mail addresses</h1>
+	<pre>
+	&lt;input type=&quot;email&quot; name=&quot;emailaddy&quot; value=&quot;&quot; 
+	placeholder=&quot;placeholder@example.com&quot; multiple required&gt;
+	</pre>
+	<p><a href="demomultipleemail/index.html" target="_blank">See it in action</a></p>
+
+</section>
+
+
+<section class="slide" id="demo3ustelephonenumbers">
+	<h1>Demo 3: U.S. Telephone Numbers</h1>
+	<pre class="smaller">
+	&lt;input type=&quot;tel&quot; name=&quot;telnum&quot; value=&quot;&quot; 
+	placeholder=&quot;818-555-1212&quot;
+	pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"
+	required&gt;
+	</pre>
+	
+	<p><a href="demophone/index.html" target="_blank">See it in action</a> (works best in Chrome 10)</p>
+	
+	<p class="footnote">Demo includes CSS 3 pseudo-classes and an optional field.</p>
+</section>
+
+<section class="slide" id="demo4urlswithapattern">
+	<h1>Demo 4: URLs with a pattern</h1>
+	<pre class="smaller">
+&lt;input type=&quot;url&quot; name=&quot;urlfield&quot; value=&quot;&quot; 
+placeholder=&quot;ftp://&quot;
+pattern="^(ftp(?:s)?\:\/\/[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*\.[a-zA-Z]{2,6}(?:\/?|(?:\/[\w\-]+)*)(?:\/?|\/\w+\.[a-zA-Z]{2,4}(?:\?[\w]+\=[\w\-]+)?)?(?:\&[\w]+\=[\w\-]+)*)$""
+required&gt;
+	</pre>
+	
+	<p><a href="demourl/index.html" target="_blank">See it in action</a></p>
+	
+	<p class="footnote">Demo includes CSS 3 pseudo-classes and an optional field.</p>
+</section>
+
+
+<section class="slide" id="fallbackstrategies">
+	<h1>Fall back strategies</h1>
+	<p>Keep doing what we have been:</p><br>
+	<ul>
+		<li>Validate data on the server</li>
+		<li>Use JavaScript based-error checking</li>
+		<li>Use existing User Interface libraries such as <a href="http://jqueryui.com/" target="_blank">jQuery <abbr title="user interface">UI</abbr></a> to mimic more complex elements</li>
+	</ul>
+	<p><b>Remember:</b> These attributes are stll a part of the DOM tree. Input fields default to <code>type="text"</code> in browsers that don't support them.</p>
+	<p><a href="demofallback/index.html" target="_blank">See a fall back strategy using jQuery</a></p>
+</section>
+
+
+
+<section class="slide" id="partialstylingoferrormessages">
+	<h1>Partial Styling of error messages</h1>
+	<p>Opera 11</p>
+	<img src="images/partialstyling.png" alt="opera will partially style error bubbles">
+</section>
+
+<section class="slide" id="nostylingoferrormessages">
+	<h1>No styling of error messages</h1>
+	<p>Chrome 10 (Firefox has different bubbles, but doesn't allow styling)</p>
+	<img src="images/chromeerrors.png" alt="Error bubbles in Chrome 10">
+</section>
+
+
+<section class="slide" id="links">
+	<h1>Links</h1>
+	<ol>
+		<li id="l2"><a href="http://msdn.microsoft.com/en-us/ie/ff468705.aspx">Internet Explorer 9 Guide for Developers</a></li>
+		<li id="l1"><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-input-element.html#the-input-element">The input element</a></li>
+		<li>Read more about <a href="http://www.w3.org/TR/css3-selectors/#UIstates">User Interface element pseudo-classes</a> in the CSS Selectors Level 3 specification, and the <a href="http://www.w3.org/TR/css3-ui/#pseudo-classes">User interface states: pseudo-classes</a> section of the CSS3 Basic User Interface Module.</li>
+		<li><a href="http://dev.opera.com/articles/view/new-form-features-in-html5/">HTML5 Forms Support in Opera</a></li>
+		<li><a href="http://diveintohtml5.org/forms.html">Forms from Dive Into HTML5</a></li>
+		<li><a href="https://developer.mozilla.org/en/HTML/HTML5/Forms_in_HTML5">Forms in HTML5 from Mozilla Developer Center</a></li>
+		<li>Slides posted at <a href="http://tiffanybbrown.com/html5forms/">http://tiffanybbrown.com/html5forms/</a></li>
+	</ol>
+</section>
+
+
+<script type="text/javascript">
+
+(function(){
+	var sections = document.getElementsByTagName('section');
+	var num = sections.length;
+	var currentSlide = 0;
+	
+	var setIDs = function(){
+		// local copies for efficiency.
+		var n = num; 
+		var sec = sections;
+		var i, h1, inputID;
+	
+		
+		for( i = 0; i < n; i++){
+			try{
+				h1 = sec[i].getElementsByTagName('h1')[0];
+				// if there is an h1, grab its ID. otherwise generate one.
+				h1 ? inputID = h1.innerHTML : inputID = 's'+i;
+				
+				sec[i].id = formatID(inputID);
+			} catch(e) {}	
+		}
+		
+	}
+	
+	var formatID = function(inputStr){
+		var idStr = inputStr.replace(/\W/g,'');	// remove all non-word characters
+		return idStr.toLowerCase();
+	}
+	
+	var setHeight = function(){
+		/* Sets a 100% height of sorts based on the initial page height */
+		// global copies
+		var sec = sections;
+		var n = num;
+		var i;
+		var winHeight = window.innerHeight;
+		
+		// firefox 3.x requires a null parameter 
+		var minusPadding = window.getComputedStyle( sec[0], null ).getPropertyValue('padding').replace('px','');
+		
+		var hundredPercentHeight = winHeight - (minusPadding * 2);
+		
+		for(i = 0; i < n; i++){
+			sec[i].style.height = hundredPercentHeight +'px';
+		}
+		
+		document.getElementsByTagName('body')[0].winHeight+'px';
+	
+	}
+	
+	
+	
+	var keydownHandler = function(e){
+	   
+	   
+		if( e.keyCode == 32){
+		
+			e.preventDefault();
+	    
+			// if we are at the last slide
+			(currentSlide == num ) ? currentSlide = 0 : ++currentSlide;
+			
+			window.location = '#'+sections[currentSlide].id;
+			
+		} 
+		
+	}
+	
+	
+	function init(){
+		setHeight();
+		setIDs();	
+	}
+	
+	window.addEventListener('load',init, false);
+	window.addEventListener('resize',setHeight, false);
+	window.addEventListener('keydown',keydownHandler, false);
+	
+	document.getElementById('formy').addEventListener('submit', function(e){
+		e.preventDefault();	
+	},false);
+
+	
+})();
+
+<!-- Google Analytics -->
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11476143-1");
+pageTracker._trackPageview();
+} catch(err) {}
+
+</script>
+</body>
+</html>

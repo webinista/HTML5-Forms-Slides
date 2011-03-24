@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Forms</title>
+	<style>
+		body{
+			font: 24pt / 1.2 helvetica,arial,sans-serif; 
+			background:#fff;
+		}
+		
+		h1, form{margin:30px}
+		
+		.col{float:left; margin-right: 30pt}
+		input[type=email]{
+			font-size: 24pt;
+		}
+	</style>
+
+</head>
+<body>
+
+
+	<h1>Form demo: Email validation</h1>
+	
+	<form id="formy" action="../processor.php" method="get">
+		<p><label for="field3">Email example:</label><input type="email" name="field3" value="" placeholder="placeholder@example.com" required></p>
+		<p><button type="submit">Submit</button></p>
+	</form>
+
+</body>
+</html>

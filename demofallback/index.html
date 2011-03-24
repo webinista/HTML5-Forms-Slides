@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Form demo: Telephone numbers and CSS3 Pseudo classes</title>
+	<script src="../jquery.js"></script>
+	<style>
+		body{
+			font: 24pt / 1.2 helvetica,arial,sans-serif; 
+			background:#fff;
+		}
+		
+		h1,form,h2,pre,p{margin:30px}
+		
+		h2{margin-top: 100px;display:block;}
+		
+		form p{margin:1em 0}
+		.col{float:left; margin-right: 30pt}
+		
+		i{color:#666; font-style:normal; padding-left:30px;font-size:.7em}
+		input[type=tel]{
+			font-size: 24pt;
+		}
+		
+		input:invalid{border: 2px solid #c00}	
+		input:valid{border: 2px solid #0c0}
+		input:required{background:#ffc;}
+		input:optional{border:1px dashed #ccc}
+		
+	
+	</style>
+
+</head>
+<body>
+	
+	<h1>Form demo: jQuery fall back</h1>
+	<p>Best viewed using an older browser that doesn't support HTML5 form elements.</p>
+	<form id="formy" action="../processor.php">
+		<div id="output"></div>	
+		<p><label for="field1">Telephone: <input type="tel"  id="telnum" name="telnum" value="" placeholder="818-555-1212" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" required="required"></p>
+		<p><label for="fax">Fax number: <input type="tel" id="fax" name="fax" value="" placeholder="818-555-1212" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"></p>
+		<p><button type="submit">Submit</button></p>
+		
+	</form>
+	
+	
+<h2>jQuery code</h2>	
+<pre>
+var form = document.getElementById('formy');
+	
+if( !form.checkValidity ){
+	$('#telnum').attr('value', $('#telnum').attr('placeholder') );
+	
+	$('#telnum').bind('blur', function(e){
+		$('#telnum').attr('value', $('#telnum').attr('placeholder') );
+	});
+	
+	$('#telnum').bind('focus', function(e){
+		$('#telnum').attr('value', '' );
+	});
+			
+	var numReg = new RegExp( $('#telnum').attr('pattern') );
+	
+	$('#formy').bind('submit', function(e){
+		e.preventDefault();
+		
+		if( $('#fax').attr('value').match(numReg) ){
+			form.submit();
+		} else {
+			$('#output').html('&lt;b style="color:#b20000"&gt;Please submit the phone number in xxx-xxx-xxxx format.&lt;/b&gt;');
+		}
+		
+	});
+else {}	
+</pre>
+
+	<script>
+	var form = document.getElementById('formy');
+	
+	if( !form.checkValidity ){
+		$('#telnum').attr('value', $('#telnum').attr('placeholder') );
+		
+		$('#telnum').bind('blur', function(e){
+			$('#telnum').attr('value', $('#telnum').attr('placeholder') );
+		});
+		
+		$('#telnum').bind('focus', function(e){
+			$('#telnum').attr('value', '' );
+		});
+		
+		var numReg = new RegExp( $('#telnum').attr('pattern') );
+		
+		$('#formy').bind('submit', function(e){
+			e.preventDefault();
+			
+			if( $('#fax').attr('value').match(numReg) ){
+				form.submit();
+			} else {
+				$('#output').html('<b style="color:#b20000">Please submit the phone number in xxx-xxx-xxxx format.</b>');
+			}
+			
+		});
+		
+	} else {}	
+		
+	</script>
+
+	
+</body>
+</html>

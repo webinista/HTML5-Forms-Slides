@@ -1,0 +1,69 @@
+/* Opera red #B20000 */
+
+body{
+	font: 22pt / 1.5 helvetica,arial,sans-serif; 
+	margin:0; 
+	padding:0; 
+	background:#fff;
+	overflow:hidden;
+}
+img{box-shadow: 0px 0px 20px #ccc; display:block; margin: 30px 0;}
+a{ color: #006;}
+a:visited{color: #E68099}
+a:hover, a:active{color: #900; text-decoration:underline}
+
+section{
+	display:block;
+	padding:20px;
+	position:relative;
+	color:#000;
+	background:#fff;
+	clear:both;
+}
+
+section:first-child{
+	 background-color:#b20000; 
+	 color:#fff;
+}
+
+section:first-child hgroup{
+	position:absolute;
+	bottom:50px;
+}
+
+h1{white-space:nowrap}
+h1, h2, h3, h4, h5, h6, a:link{color:#b20000}
+h1, h2, h3, h4, h5, h6, ul, p, form{margin: 0; clear: both}
+
+h1{font-size:1.8em}
+
+section:first-child h1,
+section:first-child h2,
+section:first-child h3{margin: 0 auto; color:inherit}
+
+.note, .footnote, .endnote{font-size: .6em;}	
+.footnote{position: absolute;  bottom: 20px;}
+
+ul{list-style-type:square;}
+ul.nobullets{list-style-type:none;}
+li{line-height: 1em; margin-bottom: .8em }
+
+.smaller{font-size: 90%;}
+.smallest{font-size:80%}
+
+.smaller li{ margin-bottom: .5em }
+
+.col{clear: none; float:left; width:44%}
+.col:nth-child(even){margin-left: 4%}
+.col:nth-child(odd){margin-left: 0%}
+
+.txtright{text-align:right;}
+.txtleft{text-align:left;}
+
+b{ color: #b20000 }
+
+div{margin: 1em auto 2em auto;}
+
+label{font-size: 24pt}
+
+pre{overflow:auto}

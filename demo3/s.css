@@ -1,0 +1,437 @@
+@charset "utf-8";
+
+/* gravel: #B4AEA6 */
+/* dark gravel: #7E7A74 */
+/* purp: #8A288F */
+@font-face{
+	font-family: 'Theano Didot';
+	src: url(TheanoDidot-Regular.ttf); /* won't work in firefox because it's TTF not OTF */
+}
+
+body{
+	font: .9em / 1.5 Georgia,'Times New Roman',serif;
+	color:#000;
+	position:relative;
+    margin:0;
+    padding:1em 0;
+    background: #fff url('fleurdelis.gif') center 1em no-repeat;
+}
+
+
+
+h1{font-size: 2em; font-family: 'Theano Didot'}
+h2, .wrapper h3{font-size: 1.45em; font-family: 'Theano Didot'}
+
+nav,section{display:block;}
+
+header{display:inline;} /* override safari default style sheet */
+
+#main{
+	position:relative;
+	clear:both;
+	min-height:700px; 
+	background: url(fleurdelisoutline.png) no-repeat 100% 100%; 
+}
+#footer{
+	clear:both; 
+	padding:30px 0 2em 0;
+	color:#B4AEA6; 
+	position:relative; 
+	bottom:0;
+	margin:0 auto; 
+	text-align:left;
+	max-width: 960px;
+}
+
+#login #footer{width:600px;}
+
+
+.nobullet{list-style-type:none;}
+.nobullet li{margin-left: -40px;}
+
+.txtleft{text-align:left;}
+.txtright{text-align:right;}
+
+.fleft{float:left;}
+.fright{float:right;}
+
+.c{clear:both;}
+.cl{clear:left;}
+.cr{clear:right;}
+
+.helptrigger{color:#009;text-decoration:underline;cursor:pointer;}
+.helptarget{}
+
+.abs{position:absolute;}
+
+dt{font-weight:bold;}
+dd{margin:0 0 1em 0}
+
+.b{font-weight:bold;}
+
+a{
+	-o-transition-property: color;
+	-o-transition-duration: 500ms;
+	-o-transition-timing-function: 'ease-in';
+	-o-transition-delay: 0;
+	
+	-moz-transition-property: color;
+	-moz-transition-duration: 500ms;
+	-moz-transition-timing-function: 'ease-in';
+	-moz-transition-delay: 0;
+	
+	-webkit-transition-property: color;
+	-webkit-transition-duration: 500ms;
+	-webkit-transition-timing-function: 'ease-in';
+	-webkit-transition-delay: 0;
+}
+
+#container{
+	position:relative; 
+	margin:0 auto; 
+	text-align:left;
+	max-width: 960px;
+}
+#login #container{padding-top:4em; text-align:center;}
+
+li{margin:0 0 1em -20px;}
+
+
+#siteName a{
+  display:block;
+  width:514px;
+  height:45px;
+  background-image: url(tiffanyandjason.png);  
+  background-repeat:no-repeat;
+  text-indent:-9999px;
+  margin:3em auto 1em auto; 
+  clear:both;
+}
+#login #siteName a{margin-top:1em}
+
+#siteName a:hover,
+#siteName a:hover{background-position: 0 -46px;}
+
+
+/* #logout #main{float:left} */
+#logout #main h1{margin-top:50px;}
+
+dt a{text-decoration:none}
+
+a:link{color:#30c}
+a:hover{color:#8A288F; text-decoration:underline}
+a:visited{color:#009}
+
+a.phone:link, a.phone:visited{color:#333; text-decoration:none;}
+a.phone:focus{color:#8A288F;}
+ 
+#guestname{ margin:0}
+#notme{margin:0 0 1.5em 390px;}
+
+#dashboard #instructions {text-align:left;clear:both}
+ 
+#nav{list-style-type:none;margin:0}
+#nav li{margin:0 0 0 350px;}
+
+#dashboard #nav {clear:both;}
+#dashboard #nav li{margin:0 0 1em -30px;}
+
+/*----
+ Form styles
+-----*/
+#loginform{ margin: auto; width:600px; text-align:left}
+
+#loginform label{
+	 font-family: 'Theano Didot',Georgia,'Times New Roman',serif;
+}
+
+.error, #error{margin:0.5em 2px; color: #8A288F;}
+
+.fieldwrap{}
+label{font-weight:bold;}
+.txtlabel{display:block; font-size:2em}
+
+form .help{clear:both; padding-top:1em}
+    
+input[type="text"]{
+	font-family: Georgia,'Times New Roman',serif;
+	font-size:3.5em;
+	display:block;
+    border-style:solid;
+ 	border-width:2px;
+	border-color:#B4AEA6;  
+
+	-o-transition-property: background-color,border-color;
+	-o-transition-duration: 500ms;
+	-o-transition-timing-function: 'ease-in';
+	-o-transition-delay: 0s;
+	
+	/* FF4 */
+	-moz-transition-property: background-color,border-color;
+	-moz-transition-duration: 500ms;
+	-moz-transition-timing-function:ease-in;
+	-moz-transition-delay:0s;
+	
+	/* safari and chrome */
+	-webkit-transition-property: background-color,border-color;
+	-webkit-transition-duration: 500ms;
+	-webkit-transition-timing-function:ease-in;
+	-webkit-transition-delay:0s;
+
+}
+
+button, input[type="submit"]{
+	background-color: #7E7A74;
+	color:#fff;
+	font: inherit;
+	font-size:2em;
+	border-width:1px;
+	border-style: solid;
+	border-color: #7E7A74;
+	padding:.2em .5em; 
+	line-height:1;
+	
+	-o-transition-property: background-color,border-color;
+	-o-transition-duration: 500ms;
+	-o-transition-timing-function: 'ease-in';
+	-o-transition-delay: 0s;
+	
+	/* FF4 */
+	-moz-transition-property: background-color,border-color;
+	-moz-transition-duration: 500ms;
+	-moz-transition-timing-function:ease-in;
+	-moz-transition-delay:0s;
+	
+	/* safari and chrome */
+	-webkit-transition-property: background-color,border-color;
+	-webkit-transition-duration: 500ms;
+	-webkit-transition-timing-function:ease-in;
+	-webkit-transition-delay:0s;		
+}
+
+button:hover, input[type="submit"]:hover,
+button:focus, input[type="submit"]:focus{background-color:#8A288F; border-color: #8A288F;}
+
+
+input[type="text"]:focus,input[type="password"]:focus{border:2px solid #8A288F; outline:none;color:#333; background-color:#FDF5FB;}
+button:focus{outline:none}
+
+fieldset{border:0;padding:0}
+.radiolabel{cursor:pointer;padding: 0 0 0 .2em;font-size:1.3em}
+
+/*-----
+Dashboard styles
+-----*/
+ 
+.wrapper{
+	/* position:absolute; */
+    background:#fff;
+    width:298px;
+    margin: 0 20px 1em 0;
+    padding: 0 0;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    -moz-box-shadow:1px 1px 8px #B4AEA6;
+    -webkit-box-shadow:1px 1px 8px #B4AEA6;
+    box-shadow: 1px 1px 8px #B4AEA6;
+    border: 1px solid #DAD7D3;
+}
+
+.wrapper > * {
+    margin-left:20px;
+    margin-right:20px;
+}
+
+
+
+.wrapper h2{margin:0; padding:10px 20px;cursor:pointer;}
+
+.chunk{margin-top:0; padding:0 0 1em 0; display:none;}
+.chunk p, .chunk ul{margin-top:0;}
+
+.wrapper{
+/* opera */
+	-o-transition-property: background-color;
+	-o-transition-duration: 1s;
+	-o-transition-timing-function: 'ease-in';
+	-o-transition-delay: 0s;
+	
+	/* FF4 */
+	-moz-transition-property: background-color;
+	-moz-transition-duration: 1s;
+	-moz-transition-timing-function:ease-in;
+	-moz-transition-delay:0s;
+	
+	/* safari and chrome */
+	-webkit-transition-property: background-color;
+	-webkit-transition-duration: 1s;
+	-webkit-transition-timing-function:ease-in;
+	-webkit-transition-delay:0s;	
+}
+
+.wrapper:hover{	background-color:#FAE8F6;}
+
+#rsvp .wrapper{
+	background:transparent;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+	width:100%;
+	float:none;
+}
+
+#rsvp div#rsvpform{
+	border:0
+}
+/*-----
+Weather styles
+-----*/
+
+
+.weatherPanel{
+    width: 31%;
+    float:left;
+    background:#FAFAFA;
+    text-align:center;
+    margin-right:1%;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+
+.weatherPanel div, 
+    .weatherPanel p, 
+    .weatherPanel h4{margin:auto;}
+
+.weatherPanel h5{margin:1em auto; text-transform:uppercase;}
+.weatherForecast{}
+
+.weatherTemp{text-align:center;font-size:2.8em;}
+.weatherThisDay .weatherTemp{font-size:3.1em;font-weight:bold;}
+
+abbr[title='celsius'], abbr[title='fahrenheit']{font-size:.5em;border:0;font-style:normal;}
+
+.weatherIcon{
+    background-repeat: no-repeat;
+    background-position: top center;
+    font-size:10px;
+    margin:5px auto;
+    display:block;
+}
+
+.weatherShortDesc{font-size:.9em;width:90%; margin: 1em auto;height:4em}
+.weatherLongDesc{font-size:10px;margin:5px auto;text-align:left;width:90%}
+.weatherDate{margin:auto; white-space:nowrap;width:90%;}
+.weatherTwelveHour{width:49%; min-height:310px; padding:10px 0; background:#ffe;}
+.weatherTwelveHour .weatherIcon{ height:130px; }
+.weatherTwelveHour .weatherTemp{font-size:3.5em;}
+
+.wrapper h3.weatherDate{font-size:1em; text-align:center;}
+
+.weatherLo{font-size:2em}
+.weatheram.weatherPanel{background:#ffc;}
+.weatherpm.weatherPanel, .weatherTonight.weatherPanel{background:#333;color:#FAFAFA}
+
+#weatherMeta{font-size:.6em;text-align:right;padding-top:5px;font-family:arial,sans-serif;color:#B4AEA6}
+#weatherMeta a:link, #weatherMeta a:visited{color:#444}
+#weatherMeta a:hover{color:#8A288F}
+
+#weatherTuesday{}
+#weatherTuesdayNight{}
+#weatherWednesday{}
+#weatherWednesdayNight{}
+#weatherThursday{}
+#weatherThursdayNight{}
+#weatherFriday{}
+#weatherFridayNight{}
+#weatherSaturday{}
+#weatherSaturdayNight{}
+#weatherSunday{}
+
+#wunderground{}
+#iconbest{}
+
+#weather12HrWrap{clear:both;float:left;margin-bottom:.5em;}
+
+
+#fiveDay .weatherDate{margin:.5em auto;clear:both}
+#fiveDay .weatherPanel{padding:10px 0; height:370px; overflow:hidden;  border:1px solid #eee;}
+#fiveDay .weatherPanel:last-child{margin-right:0;width:33%}
+
+#eatdrink{}
+#travelTrans{}
+
+.column{margin:0; float:left;}
+#col1, #col2, #col3{}
+
+/* margin:0 0 0 320px; top:0; */
+
+/* for when the window size changes */
+
+@media screen and (min-device-width: 10px) and (max-device-width: 640px){ 
+	body{
+		width: 100%; overflow:hidden
+	}
+	.error, #login #error{max-width: 320px !important;}
+	
+	
+	#login{width:98%}
+	
+	#siteName a{	
+		background-image: url(/images/shortnames.png);
+		height:30px;
+		margin:3.5em 0 0 5px;
+	}
+
+	#login, #enterpass, #setpass {
+    	float: none;
+    	margin-left: 0;
+	}
+
+	#login input[type="text"] {
+		font-size: 1.5em;
+	}
+	
+	#footer{width:98% !important; background:transparent}
+
+
+	button, input[type="submit"] {
+		font-size: 1em;
+		line-height: 1;
+		padding: 0.2em 0.5em;
+	}
+
+	.txtlabel {
+    	display: block;
+    	font-size: 1em;
+	}
+	 
+	.wrapper > * {
+		margin-left: .5em;
+		margin-right: .5em;
+	}
+	
+	header{display:block;}
+	
+	#siteName{ clear:both; margin: 1em 0 1em 2em; float:none}
+	
+	
+	#dashboard h1#guestname {
+		margin: 1em;
+		padding-top: 0px;
+		font-size: 1.2em;
+		clear:both;
+		width: 280px;
+	}
+	
+	.wrapper h2{margin:0; padding:.5em;cursor:pointer;}
+	.wrapper h2, .wrapper h3 {font-size: 1.1em; width:98%}
+	
+	#dashboard #instructions {display:none}
+	
+	#rsvp div#rsvpform{
+		margin: 1em auto; 
+	}
+
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Forms</title>
+	<link rel="stylesheet" type="text/css" href="../s.css">
+	<style type="text/css">
+	body{overflow:scroll;}
+	h1,form,p,div{margin:0}
+	</style>
+</head>
+<body>
+	<!-- so that section becomes the 2nd child-->
+	<a></a>
+
+	<section>
+	<h1>Form demo</h1>
+	
+	<form id="formy" method="post" action="http://localhost/html5forms.php">
+		<div class="col">
+			<p><label for="field0">Search example: <input type="search" name="field0" value="" placeholder="" required></p>
+			<p><label for="field1">Tel example: <input type="tel" name="field1" value="" placeholder="818-555-1212" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" required></p>
+			<p><label for="field2">Url example: <input type="url" name="field2" value="" placeholder="" required></p>
+			<p><label for="field3">Email example: <input type="email" name="field3" value="" placeholder="" required></p>
+			<p><label for="field4">Datetime example: <input type="datetime" name="field4" value="" placeholder="" required></p>
+			<p><label for="field5">Date example: <input type="date" name="field5" value="" placeholder="" required></p>
+			<p><label for="field5">Color example: <input type="color" name="fieldColor" value=""></p>
+		</div>
+		
+		<div class="col">
+			<p><label for="field6">Month example: <input type="month" name="field6" value="" placeholder=""></p>
+			<p><label for="field7">Week example: <input type="week" name="field7" value="" placeholder=""></p>
+			<p><label for="field8">Time example: <input type="time" name="field8" value="" placeholder=""></p>
+			<p><label for="field9">Datetime-local example: <input type="datetime-local" name="field9" value="" placeholder=""></p>
+			<p><label for="field10">Number example: <input type="number" name="field10" value="" placeholder=""></p>
+			<p><label for="field11">Range example: <input type="range" name="field11" value="" placeholder=""></p>
+		</div>
+		<p><button type="submit">Submit form</button></p>
+	</form>
+	<section>
+	
+</body>
+</html>

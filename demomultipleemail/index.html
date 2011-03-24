@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Forms</title>
+	<style>
+		body{
+			font: 24pt / 1.2 helvetica,arial,sans-serif; 
+			background:#fff;
+		}
+		
+		h1, form{margin:30px}
+		p{margin: 0 30px 1em 30px}
+		form p{margin:0}
+		.col{float:left; margin-right: 30pt}
+		input[type=email]{
+			font-size: 24pt;
+		}
+		.note{ font-size:14pt;}
+	</style>
+	
+</head>
+<body>
+
+
+	<h1>Form demo: Email validation, multiple addresses</h1>
+	
+	<p>Works best in Chrome 10 for now.</p>
+	<form id="formy" method="get"  action="../processor.php">
+		<p><label for="field3">Without the multiple attribute:</label><br><input type="email" id="field3" name="field3" value="foo@moo.com,goo@boo.com" placeholder="placeholder@example.com" required></p>
+		<p><button type="submit">Submit</button></p>
+	</form>
+	
+	<form id="formy2" method="get" action="../processor.php">
+		<p><label for="field3">With the multiple attribute:</label><br><input type="email" id="field4" name="field4" value="foo@moo.com,goo@boo.com" placeholder="placeholder@example.com" required multiple></p>
+		<p><button type="submit">Submit</button> <output></output> </p>
+		<p class="note">(Note: Multiple e-mail addresses <em>must</em> be comma delimited.)</p>
+	</form>
+	
+
+	<!-- <script>
+		document.getElementById('formy2').addEventListener('submit',function(e){
+			e.preventDefault();
+			document.getElementsByTagName('output')[0].innerHTML = '<b style="color:#0c0">Valid!</b>';
+			
+		},false);
+	
+	</script>
+	--> 
+</body>
+</html>

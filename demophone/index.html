@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Form demo: Telephone numbers and CSS3 Pseudo classes</title>
+	<style>
+		body{
+			font: 24pt / 1.2 helvetica,arial,sans-serif; 
+			background:#fff;
+		}
+		
+		h1,form,h2,pre{margin:30px}
+		
+		.col{float:left; margin-right: 30pt}
+		
+		i{color:#666; font-style:normal; padding-left:30px;font-size:.7em}
+		input[type=tel]{
+			font-size: 24pt;
+		}
+		
+		input:invalid{border: 2px solid #c00}	
+		input:valid{border: 2px solid #0c0}
+		input:required{background:#ffc;}
+		input:optional{border:1px dashed #ccc}
+		
+	
+	</style>
+
+</head>
+<body>
+	
+	<h1>Form demo: Telephone numbers</h1>
+	
+	<form id="formy" method="get" action="../processor.php">
+		<p><label for="field1">Telephone: <input type="tel" name="telnum" value="" placeholder="818-555-1212" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" required> <i>Has a required attribute.</i></p>
+		<p><label for="fax">Fax number: <input type="tel" name="fax" value="" placeholder="818-555-1212" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"> <i>Does not have a required attribute.</i></p>
+		<p><button type="submit">Submit</button></p>
+	</form>
+
+	<h2>Using CSS 3 pseudo-classes</h2>
+	<pre>
+input:invalid{border: 2px solid #c00}	
+input:valid{border: 2px solid #0c0}
+input:required{background:#ffc;}
+input:optional{border:1px dashed #ccc}
+	</pre>
+</body>
+</html>

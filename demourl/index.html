@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Forms</title>
+	<style>
+		body{
+			font: 24pt / 1.2 helvetica,arial,sans-serif; 
+			background:#fff;
+		}
+		
+		h1, form{margin:30px}
+		
+		.col{float:left; margin-right: 30pt}
+		input[type=url]{
+			font-size: 24pt;
+		}
+	</style>
+
+</head>
+<body>
+
+
+	<h1>Form demo: URLs with a pattern</h1>
+	
+	<form id="formy" action="../processor.php" method="get">
+		<p><label for="field3">URL example: </label><input type="url" id="field3" name="field3" value="" placeholder="ftp://" pattern="^(ftp(?:s)?\:\/\/[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*\.[a-zA-Z]{2,6}(?:\/?|(?:\/[\w\-]+)*)(?:\/?|\/\w+\.[a-zA-Z]{2,4}(?:\?[\w]+\=[\w\-]+)?)?(?:\&[\w]+\=[\w\-]+)*)$" required></p>
+		<p><button type="submit">Submit</button><output></output></p>
+		
+	</form>
+
+
+	<script>
+
+	</script>
+	
+</body>
+</html>
